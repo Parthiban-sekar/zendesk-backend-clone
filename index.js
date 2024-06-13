@@ -1,39 +1,59 @@
 const express = require("express");
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-const cors = require("cors");
-const verifyToken = require("./middleware.js");
-const capstoneRouter=require("./Routes/CapstoneRouter.js")
-const classRouter=require("./Routes/ClassRouter.js")
-const leaderboardRouter=require("./Routes/LeaderboardRouter.js")
-const leaveRouter=require("./Routes/LeaveRouter.js")
-const ProfileRouter=require("./Routes/ProfileRouter.js")
-const studentRouter=require("./Routes/StudentRouter.js")
-const taskRouter=require("./Routes/TaskRouter.js")
-const webcodeRouter=require("./Routes/WebcodeRouter.js")
-
-
-
-dotenv.config();
-const port = process.env.PORT;
 const app = express();
+const cors = require("cors");
+const mongoose = require("mongoose");
 
-mongoose
-  .connect(process.env.MONGO_URL)
-  .then(() => console.log("DB connection success"))
-  .catch((err) => console.error("DB connection error:", err));
 
-app.use(cors());
+
+require("dotenv").config();
+
+//require the .env data
+const PORT = process.env.PORT;
+const Mongo_URL = process.env.Mongo_URL;
+
+
 
 app.use(express.json());
+app.use(cors());
 
-app.use("/api/student",studentRouter)
-app.use("/api/profile",ProfileRouter)
-app.use("/api/class",verifyToken,classRouter)
-app.use("/api/task",verifyToken,taskRouter)
-app.use("/api/leave",verifyToken,leaveRouter)
-app.use("/api/capstone",verifyToken,capstoneRouter)
-app.use("/api/webcode",verifyToken,webcodeRouter)
-app.use("/api/leaderboard",verifyToken,leaderboardRouter)
+const studentRouter = require("./Routes/studentRoutes.js");
+const loginRouter = require("./Routes/loginRoutes.js");
+const capstoneRouter = require("./Routes/capstoneRoutes.js");
+const leaveRouter = require("./Routes/leaveRoutes.js")
+const portfolioRouter =require("./Routes/portfolioRoutes.js")
+const queryRouter =require("./Routes/queryRoutes.js")
+const taskRouter =require("./Routes/taskRoutes.js")
+const webcodeRouter =require("./Routes/webcodeRoutes.js")
 
-app.listen(port, () => console.log("backend server started"));
+// db connect 
+mongoose.set("strictQuery", true);
+mongoose
+  .connect(Mongo_URL)
+  .then(() => {
+    console.log("connected to MongoDB");
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+// checking the postman api
+app.get("/", (req, res) => {
+  res.send("Welcome to Zen-Dashboard");
+});
+
+app.use(studentRouter);
+app.use(loginRouter);
+app.use(capstoneRouter);
+app.use(leaveRouter);
+app.use(portfolioRouter);
+app.use(queryRouter);
+app.use(taskRouter);
+app.use(webcodeRouter);
+
+// listening port 
+app.listen(PORT, () => {
+  console.log("successfully running on the port", PORT);
+})
+
+
+module.exports = app;
