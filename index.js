@@ -19,8 +19,7 @@ const port = process.env.PORT;
 const app = express();
 
 mongoose
-  .connect(process.env.MONGO_URL, {
-  })
+  .connect(process.env.MONGO_URL)
   .then(() => console.log("DB connection success"))
   .catch((err) => console.error("DB connection error:", err));
 
