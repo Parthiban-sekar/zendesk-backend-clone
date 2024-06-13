@@ -37,7 +37,7 @@ const signupStudent = async (req, res) => {
       const randomString =
         Math.random().toString(36).substring(2, 15) +
         Math.random().toString(36).substring(2, 15);
-      const link = `https://zenclass-clone-dashboard.netlify.app/confirm/ ${randomString}`;
+      const link = `https://zenclass-clone-dashboard.netlify.app/ ${randomString}`;
    
   
       // hashed password
@@ -60,7 +60,7 @@ const signupStudent = async (req, res) => {
     //   sending email for Confirm account
   
       const transporter = nodemailer.createTransport({
-        service: "gmail",
+        service: "gmail", 
         auth: {
           user: process.env.EMAIL_ADDRESS,
           pass: process.env.EMAIL_PASSWORD,
@@ -73,12 +73,12 @@ const signupStudent = async (req, res) => {
             to: student.email,
             subject: "Confirm account",
             text: link,
-     
-        });
+          });
       };
-      // sendMail();
+       sendMail();
+
       res.status(201).json({
-        message: "User registered successfully",
+        message: `Hi! ${student.firstname} you are registered successfully `,
         data:student
        
       });
