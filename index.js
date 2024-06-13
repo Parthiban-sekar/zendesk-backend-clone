@@ -9,7 +9,7 @@ require("dotenv").config();
 
 //require the .env data
 const PORT = process.env.PORT;
-const Mongo_URL = process.env.Mongo_URL;
+const DB_URI = process.env.DB_URI;
 
 
 
@@ -28,7 +28,7 @@ const webcodeRouter =require("./Routes/webcodeRoutes.js")
 // db connect 
 mongoose.set("strictQuery", true);
 mongoose
-  .connect(Mongo_URL)
+  .connect(DB_URI)
   .then(() => {
     console.log("connected to MongoDB");
   })
