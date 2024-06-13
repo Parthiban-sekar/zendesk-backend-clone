@@ -37,7 +37,7 @@ const signupStudent = async (req, res) => {
       const randomString =
         Math.random().toString(36).substring(2, 15) +
         Math.random().toString(36).substring(2, 15);
-      const link = `https://nihmath-zen-dashboard.netlify.app/confirm/${randomString}`;
+      const link = `https://zenclass-clone-dashboard.netlify.app/confirm/ ${randomString}`;
    
   
       // hashed password
