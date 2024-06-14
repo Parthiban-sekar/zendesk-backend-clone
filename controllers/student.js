@@ -3,11 +3,12 @@ const Student = require("../Model/StudentModel.js");
 const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
 
+require("dotenv").config();
 
 /*****************sign up new student*********************/
 
 
-const signupStudent = async (req, res) => {
+const signupStudent = async (req, res) => { 
     //preparing object to store in collection
   
     try {
@@ -278,3 +279,5 @@ const resetPassword = async (req, res) => {
     forgotPassword,
     resetPassword
 };
+
+
