@@ -10,7 +10,9 @@ require("dotenv").config();
 //require the .env data
 const PORT = process.env.PORT;
 const DB_URI = process.env.DB_URI;
-
+const EMAIL_ADDRESS = process.env.EMAIL_ADDRESS;
+const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD;
+const FEURL = process.env.FEURL
 
 app.use(express.json());
 app.use(cors());

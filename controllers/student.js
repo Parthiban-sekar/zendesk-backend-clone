@@ -3,6 +3,7 @@ const Student = require("../Model/StudentModel.js");
 const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
 
+
 require("dotenv").config();
 
 /*****************sign up new student*********************/
@@ -38,7 +39,7 @@ const signupStudent = async (req, res) => {
       const randomString =
         Math.random().toString(36).substring(2, 15) +
         Math.random().toString(36).substring(2, 15);
-      const link = `https://zenclass-clone-dashboard.netlify.app/ ${randomString}`;
+      const link = `${FEURL}/confirm/ ${randomString}`;
    
   
       // hashed password
@@ -67,6 +68,7 @@ const signupStudent = async (req, res) => {
           pass: process.env.EMAIL_PASSWORD,
         },
       });
+      
 
       const sendMail = async () => {
         const info = await transporter.sendMail({
