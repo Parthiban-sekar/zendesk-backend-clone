@@ -15,7 +15,7 @@ const login = async (req, res) => {
     if (!student) {
       return res
         .status(401)
-        .json({ message: "invalid username/Please Sign-up" });
+        .json({ message: "invalid username or password/Please Sign-up" });
     }
 
     // if student not verified send error
@@ -29,7 +29,7 @@ const login = async (req, res) => {
 
     // if student password does not match send error
     if (!passwordCheck) {
-      return res.status(401).json({ message: "password incorrect" });
+      return res.status(401).json({ message: "Username or password incorrect" });
     }
 
     // generate JWT token
