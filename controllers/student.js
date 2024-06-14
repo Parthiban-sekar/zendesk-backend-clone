@@ -1,14 +1,13 @@
 
-const Student = require("../Model/StudentModel.js");
+const Student = require("../Model/StudentModel");
 const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
 
-require("dotenv").config();
 
 /*****************sign up new student*********************/
 
 
-const signupStudent = async (req, res) => { 
+const signupStudent = async (req, res) => {
     //preparing object to store in collection
   
     try {
@@ -61,9 +60,9 @@ const signupStudent = async (req, res) => {
     //   sending email for Confirm account
   
       const transporter = nodemailer.createTransport({
-        service: "gmail", 
+        service: "gmail",
         auth: {
-          user: process.env.EMAIL_ADDRESS, 
+          user: process.env.EMAIL_ADDRESS,
           pass: process.env.EMAIL_PASSWORD,
         },
       });
@@ -74,13 +73,12 @@ const signupStudent = async (req, res) => {
             to: student.email,
             subject: "Confirm account",
             text: link,
+     
         });
       };
-
-       sendMail();
-
+      // sendMail();
       res.status(201).json({
-        message: `Hi! ${student.firstname} you are registered successfully `,
+        message: "User registered successfully",
         data:student
        
       });
@@ -280,5 +278,3 @@ const resetPassword = async (req, res) => {
     forgotPassword,
     resetPassword
 };
-
-
