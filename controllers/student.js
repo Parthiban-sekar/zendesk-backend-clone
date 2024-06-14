@@ -3,7 +3,6 @@ const Student = require("../Model/StudentModel.js");
 const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
 
-
 require("dotenv").config();
 
 /*****************sign up new student*********************/
@@ -39,7 +38,7 @@ const signupStudent = async (req, res) => {
       const randomString =
         Math.random().toString(36).substring(2, 15) +
         Math.random().toString(36).substring(2, 15);
-      const link = `${FEURL}/confirm/ ${randomString}`;
+      const link = `https://zenclass-clone-dashboard.netlify.app/confirm/${randomString}`;
    
   
       // hashed password
@@ -68,7 +67,6 @@ const signupStudent = async (req, res) => {
           pass: process.env.EMAIL_PASSWORD,
         },
       });
-      
 
       const sendMail = async () => {
         const info = await transporter.sendMail({
@@ -78,6 +76,7 @@ const signupStudent = async (req, res) => {
             text: link,
         });
       };
+
        sendMail();
 
       res.status(201).json({
@@ -195,7 +194,7 @@ const forgotPassword = async (req, res) => {
       const randomString =
         Math.random().toString(36).substring(2, 15) +
         Math.random().toString(36).substring(2, 15);
-      const link = `https://nihmath-zen-dashboard.netlify.app/reset/${randomString}`;
+      const link = `https://zenclass-clone-dashboard.netlify.app/reset/${randomString}`;
   
       // adding reset token to student db
       matchedStudent.resetToken = randomString;
