@@ -73,7 +73,7 @@ const signupStudent = async (req, res) => {
             to: student.email,
             subject: "Confirm account",
             text: link,
-          });
+        });
       };
        sendMail();
 
