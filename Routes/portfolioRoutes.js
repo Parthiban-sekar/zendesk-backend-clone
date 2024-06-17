@@ -1,6 +1,15 @@
-const loginRouter = require("express").Router();
-const { login } = require("../controllers/login.js");
+const portfolioRouter = require("express").Router();
+const {
+  fetchPortfolio,
+  postPortfolio,
+} = require("../controllers/portfolio.js");
 
-loginRouter.post("/student/login", login);
+// fetching all portfolio
 
-module.exports = loginRouter;
+portfolioRouter.get("/student/portfolio", fetchPortfolio);
+
+//posting new portfolio data
+
+portfolioRouter.post("/student/portfolio", postPortfolio);
+
+module.exports = portfolioRouter;

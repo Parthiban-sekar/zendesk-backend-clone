@@ -1,17 +1,20 @@
 const queryRouter = require("express").Router();
-const {postQuery,deleteQuery,fetchQuery} = require("../controllers/query.js");
+const {
+  fetchQuery,
+  postQuery,
+  deleteQuery,
+} = require("../Controllers/query.js");
 
-//posting new query 
+// fetching all query
+
+queryRouter.get("/student/query", fetchQuery);
+
+//posting new query
 
 queryRouter.post("/student/query", postQuery);
 
 //deleting query
 
 queryRouter.delete("/student/query/:id", deleteQuery);
-
-// fetching all query
-
-queryRouter.get("/student/query", fetchQuery);
-
 
 module.exports = queryRouter;

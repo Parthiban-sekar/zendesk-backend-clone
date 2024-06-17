@@ -23,19 +23,19 @@ const capstoneSchema = new mongoose.Schema({
     type: String,
     default: "submitted",
   },
-  frontEndUrl: {
+  feUrl: {
     type: String,
     required: [true, "FE URL missing"],
   },
-  backEndUrl: {
+  beUrl: {
     type: String,
     required: [true, "BE URL missing"],
   },
-  frontEndCode: {
+  feCode: {
     type: String,
     required: [true, "FE Code URL missing"],
   },
-  backEndCode: {
+  beCode: {
     type: String,
     required: [true, "BE Code URL missing"],
   },

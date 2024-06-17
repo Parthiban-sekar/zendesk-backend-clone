@@ -1,13 +1,19 @@
 const studentRouter = require("express").Router();
+const {
+  signupStudent,
+  updateStudent,
+  confirmStudent,
+  forgotPassword,
+  resetPassword,
+} = require("../Controllers/student.js");
 
-const { signupStudent,updateStudent,confirmStudent,forgotPassword,resetPassword } = require("../controllers/student.js")
-//new user signup api
-studentRouter.post("/student/signup", signupStudent)
+/*****************sign up new student*********************/
+
+studentRouter.post("/student/signup", signupStudent);
 
 /***************updating student profile*************/
 
 studentRouter.put("/student/update", updateStudent);
-
 
 /**********confirming/authenticate student account*************/
 
@@ -21,5 +27,4 @@ studentRouter.put("/student/forgot", forgotPassword);
 
 studentRouter.patch("/student/reset/:id", resetPassword);
 
-
-module.exports = studentRouter
+module.exports = studentRouter;

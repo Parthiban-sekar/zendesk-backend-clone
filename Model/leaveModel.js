@@ -8,8 +8,8 @@ const leaveSchema = new mongoose.Schema({
     required: [true, "reason missing"],
   },
   appliedOn: {
-    type: Date,
-    default: Date.now(),
+    type: String,
+    required: [true, "date missing"],
   },
   status: {
     type: String,

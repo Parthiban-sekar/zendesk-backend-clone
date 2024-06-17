@@ -23,11 +23,11 @@ const webcodeSchema = new mongoose.Schema({
     type: String,
     default: "pending",
   },
-  frontEndUrl: {
+  feUrl: {
     type: String,
     required: [true, "FE URL missing"],
   },
-  frontEndCode: {
+  feCode: {
     type: String,
     required: [true, "FE Code URL missing"],
   },
