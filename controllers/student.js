@@ -76,7 +76,7 @@ const signupStudent = async (req, res) => {
      
         });
       };
-      // sendMail();
+       sendMail();
       res.status(201).json({
         message: "User registered successfully",
         data:student
