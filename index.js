@@ -24,7 +24,7 @@ const taskRouter =require("./Routes/taskRoutes.js")
 const webcodeRouter =require("./Routes/webcodeRoutes.js")
 
 // db connect 
-mongoose.set("strictQuery", true);
+mongoose.set("strictQuery", false);
 mongoose
   .connect(DB_URI)
   .then(() => {
