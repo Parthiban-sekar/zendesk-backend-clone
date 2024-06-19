@@ -2,7 +2,7 @@ const portfolioRouter = require("express").Router();
 const {
   fetchPortfolio,
   postPortfolio,
-} = require("../controllers/portfolio.js");
+} = require("../Controllers/portfolio.js");
 
 // fetching all portfolio
 

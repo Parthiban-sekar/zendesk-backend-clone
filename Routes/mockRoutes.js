@@ -1,5 +1,5 @@
 const mockRouter = require("express").Router();
-const { fetchMock, postMock } = require("../controllers/mock.js")
+const { fetchMock, postMock } = require("../Controllers/mock.js");
 
 // fetching all mock
 
