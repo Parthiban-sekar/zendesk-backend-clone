@@ -1,20 +1,18 @@
 const leaveRouter = require("express").Router();
-const {
-  fetchLeave,
-  postLeave,
-  deleteLeave,
-} = require("../Controllers/leave.js");
-
-// fetching all leave
-
-leaveRouter.get("/student/leave", fetchLeave);
+const { postLeave,fetchLeave,deleteLeave} = require("../controllers/leave");
 
 //posting new leave
 
 leaveRouter.post("/student/leave", postLeave);
 
-//deleting leave
+//posting leave  fetch all data
 
-leaveRouter.delete("/student/leave/:id", deleteLeave);
+leaveRouter.get("/student/leave",fetchLeave);
+
+//posting leave delete 
+leaveRouter.delete("/student/leave/:id",deleteLeave);
+
+
+
 
 module.exports = leaveRouter;

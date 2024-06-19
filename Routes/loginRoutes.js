@@ -1,5 +1,5 @@
 const loginRouter = require("express").Router();
-const { login } = require("../Controllers/login.js");
+const { login } = require("../controllers/login");
 
 loginRouter.post("/student/login", login);
 

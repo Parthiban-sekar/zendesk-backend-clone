@@ -1,12 +1,13 @@
 const webcodeRouter = require("express").Router();
-const { fetchWebcode, postWebcode } = require("../Controllers/webcode.js");
+const { postWebcode,fetchWebcode} = require("../controllers/webcode");
 
-// fetching all webcode
 
-webcodeRouter.get("/student/webcode", fetchWebcode);
+//new post for webcode project
+webcodeRouter.post("/student/webcode",postWebcode);
 
-//posting new webcode data
+//fetch webcode data
+webcodeRouter.get("/student/getwebcode",fetchWebcode);
 
-webcodeRouter.post("/student/webcode", postWebcode);
+
 
 module.exports = webcodeRouter;

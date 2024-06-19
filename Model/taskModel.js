@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 
 const taskSchema = new mongoose.Schema({
   day: {
-    type: String,
-    required: [true, "Task Day missing"],
+    type:Date,
+    default: Date.now,
   },
   frontEndCode: {
     type: String,

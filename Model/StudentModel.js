@@ -2,17 +2,17 @@ const mongoose = require("mongoose");
 
 // defining a schema
 const studentSchema = new mongoose.Schema({
-  name: {
+  firstname: {
     type: String,
     required: [true, "please add first name"],
   },
-  lName: {
+  lastname: {
     type: String,
     required: [true, "please add last name"],
   },
   batch: {
     type: String,
-    default: "B47-WD2 Tamil",
+    default: "B54-WD Tamil",
   },
   contactNo: {
     type: String,
@@ -45,7 +45,7 @@ const studentSchema = new mongoose.Schema({
   },
   verified: {
     type: Boolean,
-    default: false,
+    default: true,
   },
   mockInterview: {
     type: String,

@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
-const Student = require("../Model/studentModel");
+const Student = require("../Model/StudentModel");
 const bcrypt = require("bcrypt");
-const { SECRET } = require("../utils/config");
+
 
 const login = async (req, res) => {
   try {
@@ -34,14 +34,14 @@ const login = async (req, res) => {
 
     // generate JWT token
     const studentToken = {
-      name: student.name,
+      name: student.firstname,
       id: student._id,
     };
 
-    const token = jwt.sign(studentToken, SECRET, { expiresIn: 60 * 60 });
+    const token = jwt.sign(studentToken, process.env.SECRET, { expiresIn: 60 * 60 });
 
     //if everything is ok send response
-    res.status(200).send({ token, student });
+    res.status(200).send({ message:"successfully login ",token, student  });
 
     //
   } catch (error) {
@@ -51,6 +51,7 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = {
-  login,
-};
+
+
+
+module.exports = {login};
