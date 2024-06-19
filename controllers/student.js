@@ -37,7 +37,7 @@ const signupStudent = async (req, res) => {
       const randomString =
         Math.random().toString(36).substring(2, 15) +
         Math.random().toString(36).substring(2, 15);
-      const link = `http://localhost:5173/confirm/${randomString}`;
+      const link = `https://zendesk-frontend.netlify.app/confirm/${randomString}`;
    
   
       // hashed password
@@ -193,7 +193,7 @@ const forgotPassword = async (req, res) => {
       const randomString =
         Math.random().toString(36).substring(2, 15) +
         Math.random().toString(36).substring(2, 15);
-      const link = `http://localhost:5173/reset/${randomString}`;
+      const link = `https://zendesk-frontend.netlify.app/reset/${randomString}`;
   
       // adding reset token to student db
       matchedStudent.resetToken = randomString;
